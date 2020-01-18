@@ -1,0 +1,50 @@
+v1: ASCON_AEAD+Hash
+
+    Reference software:    
+        crypto_aead: ascon128v12
+        crypto_hash: asconhashv12
+        
+    Architecture description:
+        Implementation of ASCON, with b=320, r=64, c=256, n=128, t=128, and h=256. Basic iterative architecture where 1 round of the ASCON permutation is executed in 1 clock cycle.
+
+    Key setup time:
+        0
+        
+    Execution time of authenticated encryption:
+        24 + (Na*9) + (Nm*10) + 18
+    Execution time of authenticated decryption:
+        17 + (Na*9) + (Nc*10) + 20
+    Execution time of hash:
+        13 + (Nm*15) + (Nh*15)
+
+        
+v2: ASCON_AEAD
+
+    Reference software:
+        crypto_aead: ascon128v12
+        
+    Architecture description:
+        Implementation of ASCON, with b=320, r=64, c=256, n=128, and t=128. Basic iterative architecture where 1 round of the ASCON permutation is executed in 1 clock cycle.
+
+    Key setup time:
+        0
+        
+    Execution time of authenticated encryption:
+        24 + (Na*9) + (Nm*10) + 18
+    Execution time of authenticated decryption:
+        17 + (Na*9) + (Nc*10) + 20
+
+        
+v3: ASCON_Hash
+
+    Reference software:
+        crypto_hash: asconhashv12
+        
+    Architecture description:
+        Implementation of ASCON, with b=320, r=64, c=256, h=256. Basic iterative architecture where 1 round of the ASCON permutation is executed in 1 clock cycle.
+
+    Key setup time:
+        0
+        
+    Execution time of hash:
+       13 + (Nm*15) + (Nh*15)
