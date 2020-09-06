@@ -30,8 +30,8 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-use IEEE.math_real."ceil";
-use IEEE.math_real."log2";
+--use IEEE.math_real."ceil";
+--use IEEE.math_real."log2";
 use work.NIST_LWAPI_pkg.all;
 use work.design_pkg.all;
 

@@ -83,8 +83,19 @@ package body SomeFunction is
     
     -- Extract -------------------------------------------------------------------
     function ext (O : in std_logic_vector(127 downto 0); bytes : in std_logic_vector(1 downto 0)) return std_logic_vector is
-    begin
-    return O((127 - conv_integer(bytes)*32) downto (96 - conv_integer(bytes)*32));
+    variable temp : std_logic_vector(31 downto 0);
+	 begin
+		case bytes is
+			when "00" =>
+				temp := O(127 downto 96);
+			when "01" =>
+				temp := O(95 downto 64);
+			when "10" =>
+				temp := O(63 downto 32);
+			when others =>
+				temp := O(31 downto 0);
+			end case;
+    return temp;
     end function;
     
 end package body SomeFunction;
